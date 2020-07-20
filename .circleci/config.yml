@@ -6,8 +6,10 @@ jobs:
     working_directory: ~/repo
     docker:
       - image: circleci/node:10.16.3
+    executor: heroku/default
     steps:
       - checkout
+      - heroku/install
       - run:
           name: Update NPM
           command: "sudo npm install -g npm"
@@ -28,10 +30,4 @@ jobs:
           command: |
             mv .env.example .env
             adonis migration:run
-workflows:
-  heroku_deploy:
-    jobs:
-      - build
-      - heroku/deploy-via-git:
-          requires:
-            - build
+      - heroku/deploy-via-git
