@@ -27,6 +27,7 @@ jobs:
             - ./node_modules
       - run:
           name: "Run migrations"
-          command: adonis migration:run
-
+          command: |
+            mv .env.example .env
+            adonis migration:run
       - heroku/deploy-via-git
