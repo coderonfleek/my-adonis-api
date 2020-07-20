@@ -6,6 +6,7 @@ Route.get("/", () => {
   return { greeting: "Welcome to the Adonis API tutorial" };
 });
 
+//User routes
 Route.group(() => {
   Route.post("create", "UserController.create");
 
