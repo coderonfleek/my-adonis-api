@@ -1,2 +1,2 @@
-release: ENV_SILENT=true mv .env.example .env
-web: ENV_SILENT=true npm start
+release: mv .env.example .env
+web: APP_KEY=7nXEmYgKYPqMjw3ArMJeguAPRJ4vNBKt npm start
