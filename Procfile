@@ -1,1 +1,1 @@
-web: mv .env.example .env | APP_KEY=7nXEmYgKYPqMjw3ArMJeguAPRJ4vNBKt npm start
+web: npm run start-prod
