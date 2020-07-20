@@ -13,7 +13,7 @@ jobs:
           command: "sudo npm install -g npm"
       - run:
           name: "Install Adonis CLI"
-          command: npm i -g @adonisjs/cli
+          command: sudo npm i -g @adonisjs/cli
       - restore_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run:
@@ -32,4 +32,6 @@ workflows:
   heroku_deploy:
     jobs:
       - build
-      - heroku/deploy-via-git
+      - heroku/deploy-via-git:
+          requires:
+            - build
